@@ -26,8 +26,7 @@ d3.json("json/police2.json", function(response) {
 
     if (ziptable[zipcode]) {
       coordinates = ziptable[zipcode]
-      // Add a new marker to the cluster group and bind a pop-up
-      markers.addLayer(L.marker(coordinates));
+      markers.addLayer(L.marker(coordinates).bindPopup(response[i].victim_name));
 }
   }
 
