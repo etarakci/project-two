@@ -13,13 +13,28 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
 
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css"> -->
+
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
   </head>
   <body>
 
+
+
+
+<!-- <div><input id="searchbox" type="text"></div> -->
+<form id="form" style="display:run-in">
+  <!-- <span class="form-group"> -->
+    <label for="form">Search by name, place, description...</label>
+    <input class="form-control" id="form-input" value="" name="form" type="text">
+  <!-- </span> -->
+  <button id="button" type="button" class="btn btn-default">Search</button>
+</form>
+
     <div id="map"></div>
+
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"

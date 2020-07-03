@@ -1,5 +1,5 @@
 // Creating map object
-var myMap = L.map("map", {
+var map = L.map("map", {
   center: [40.7, -97],
   zoom: 4
 });
@@ -12,7 +12,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   zoomOffset: -1,
   id: "mapbox/streets-v11",
   accessToken: API_KEY
-}).addTo(myMap);
+}).addTo(map);
 
 // Grab the data with d3
 d3.json("json/police2.json", function(response) {
@@ -25,12 +25,62 @@ d3.json("json/police2.json", function(response) {
     var zipcode = response[i].zipcode;
 
     if (ziptable[zipcode]) {
-      coordinates = ziptable[zipcode]
-      markers.addLayer(L.marker(coordinates).bindPopup(response[i].victim_name));
-}
-  }
+      coordinates = ziptable[zipcode]  // table of zip codes to coordinates is in ziptable.js
+
+      // pop-up text: victim's name, linking to URL of news article if available, and photo if available
+      if (response[i].link_to_news_article_or_photo) {
+        popupText = "<a target='_blank' href="+response[i].link_to_news_article_or_photo+">"+response[i].victim_name+"</a>"}
+        else {
+          popupText = response[i].victim_name
+        }
+      if (response[i].url_image_of_victim) {
+        popupText += "<br><img src='"+response[i].url_image_of_victim+"' width='100' onerror='this.style.display=\"none\"'/>"
+      }
+
+      markers.addLayer(L.marker(coordinates).bindPopup(popupText));
+}}
 
   // Add our marker cluster layer to the map
-  myMap.addLayer(markers);
+  map.addLayer(markers);
 
+
+
+
+var button = d3.select("#button");
+var form = d3.select("#form");
+button.on("click", search);
+form.on("submit",search);
+
+function search() {
+
+  d3.event.preventDefault();
+  var inputElement = d3.select("#form-input");
+  var term = inputElement.property("value");
+
+  var markersSearch = L.markerClusterGroup();
+
+  for (var i = 0; i < response.length; i++) {
+
+    text = Object.values(response[i]).toString();
+    if(text.search(term)===-1) {console.log(term); continue;}
+
+    var zipcode = response[i].zipcode;
+    if (ziptable[zipcode]) {
+      coordinates = ziptable[zipcode]
+      if (response[i].link_to_news_article_or_photo) {
+        popupText = "<a target='_blank' href="+response[i].link_to_news_article_or_photo+">"+response[i].victim_name+"</a>"}
+        else { popupText = response[i].victim_name }
+      if (response[i].url_image_of_victim) {
+        popupText += "<br><img src='"+response[i].url_image_of_victim+"' width='100' onerror='this.style.display=\"none\"'/>"
+      }
+
+      markersSearch.addLayer(L.marker(coordinates).bindPopup(popupText));
+}}
+
+
+  map.removeLayer(markers);
+  map.addLayer(markersSearch);
+// need to also remove any existing search layers, otherwise new searches don't clear map
+
+}
 });
