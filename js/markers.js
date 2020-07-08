@@ -36,6 +36,7 @@ d3.json("json/police2.json", function(response) {
       if (response[i].url_image_of_victim) {
         popupText += "<br><img src='"+response[i].url_image_of_victim+"' width='100' onerror='this.style.display=\"none\"'/>"
       }
+      popupText += "<br>"+response[i].description_of_the_circumstances;
 
       markers.addLayer(L.marker(coordinates).bindPopup(popupText));
 }}
@@ -43,7 +44,8 @@ d3.json("json/police2.json", function(response) {
   // Add our marker cluster layer to the map
   map.addLayer(markers);
 
-
+  var markersSearch = L.markerClusterGroup();
+  map.addLayer(markersSearch);
 
 
 var button = d3.select("#button");
@@ -53,16 +55,16 @@ form.on("submit",search);
 
 function search() {
 
+  markers.clearLayers();    // clear existing markers
+
   d3.event.preventDefault();
   var inputElement = d3.select("#form-input");
   var term = inputElement.property("value");
 
-  var markersSearch = L.markerClusterGroup();
-
   for (var i = 0; i < response.length; i++) {
 
-    text = Object.values(response[i]).toString();
-    if(text.search(term)===-1) {console.log(term); continue;}
+    text = Object.values(response[i]).toString().toLowerCase();
+    if(text.search(term.toLowerCase())===-1) {continue;}
 
     var zipcode = response[i].zipcode;
     if (ziptable[zipcode]) {
@@ -73,14 +75,15 @@ function search() {
       if (response[i].url_image_of_victim) {
         popupText += "<br><img src='"+response[i].url_image_of_victim+"' width='100' onerror='this.style.display=\"none\"'/>"
       }
+      popupText += "<br>"+response[i].description_of_the_circumstances;
 
-      markersSearch.addLayer(L.marker(coordinates).bindPopup(popupText));
+      markers.addLayer(L.marker(coordinates).bindPopup(popupText));
 }}
 
+  map.addLayer(markers);
+}   // end of search function
 
-  map.removeLayer(markers);
-  map.addLayer(markersSearch);
-// need to also remove any existing search layers, otherwise new searches don't clear map
 
-}
 });
+
+// to do: change mapping from zip codes to address-based 
