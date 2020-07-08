@@ -1,6 +1,7 @@
 from flask import Flask, render_template,jsonify
 import pymongo
 import json
+from bson.json_util import loads
 
 app = Flask(__name__)
 
@@ -27,7 +28,6 @@ def index():
 @app.route("/api/v1.0/contracts", methods=['GET','POST'])
 def contracts():
     # write a statement that finds all the items in the db and sets it to a variable
-    from bson.json_util import loads
     contracts = contracts_db.find()
     # print(loads("'"+str(contracts[0])+"'"))
     # print(jsondumps(contracts[0], indent=3))
@@ -46,7 +46,7 @@ def contracts():
 @app.route("/api/v1.0/police", methods=['GET','POST'])
 def police():
     # write a statement that finds all the items in the db and sets it to a variable
-    from bson.json_util import loads
+    # return jsonify({"a":"H"});
     police_killings = police_db.find()
     # print(loads("'"+str(contracts[0])+"'"))
     # print(jsondumps(contracts[0], indent=3))
@@ -64,7 +64,6 @@ def police():
 @app.route("/api/v1.0/equipment", methods=['GET','POST'])
 def equipment():
     # write a statement that finds all the items in the db and sets it to a variable
-    from bson.json_util import loads
     dod_equipment = equipment_db.find()
     # print(loads("'"+str(contracts[0])+"'"))
     # print(jsondumps(contracts[0], indent=3))
@@ -82,7 +81,6 @@ def equipment():
 @app.route("/api/v1.0/city", methods=['GET','POST'])
 def city():
     # write a statement that finds all the items in the db and sets it to a variable
-    from bson.json_util import loads
     dod_city = city_db.find()
     # print(loads("'"+str(contracts[0])+"'"))
     # print(jsondumps(contracts[0], indent=3))
@@ -100,7 +98,6 @@ def city():
 @app.route("/api/v1.0/state", methods=['GET','POST'])
 def state():
     # write a statement that finds all the items in the db and sets it to a variable
-    from bson.json_util import loads
     dod_state = state_db.find()
     # print(loads("'"+str(contracts[0])+"'"))
     # print(jsondumps(contracts[0], indent=3))
