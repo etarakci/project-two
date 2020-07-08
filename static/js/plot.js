@@ -3,7 +3,7 @@
 
 console.log("File loaded");
 
-var url = "/api/v1.0/police";
+var url = "/api/v1.0/contracts";
 d3.json(url).then(data=>{
   console.log(data);
 })

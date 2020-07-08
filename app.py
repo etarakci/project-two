@@ -1,6 +1,7 @@
 from flask import Flask, render_template,jsonify
 import pymongo
 import json
+import numpy as np
 from bson.json_util import loads
 
 app = Flask(__name__)
@@ -55,9 +56,16 @@ def police():
         dct = {}
         for y in x:
             if y != "_id":
+                if x[y] == np.nan:
+                #if np.isnan(x[y]):
+                    x[y] = None
                 dct[y]=x[y]
         police_lst.append(dct)
     print(police_lst[0])
+    # for x in police_lst[0]:
+    #     print(x, type(police_lst[0][x]))
+    #return jsonify({"a":"1"})
+    
 
     return jsonify(police_lst)    
 
