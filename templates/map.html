@@ -27,10 +27,18 @@
 <!-- <div><input id="searchbox" type="text"></div> -->
 <form id="form" style="display:run-in">
   <!-- <span class="form-group"> -->
-    <label for="form">Search by name, place, description...</label>
-    <input class="form-control" id="form-input" value="" name="form" type="text">
+
   <!-- </span> -->
+  <label for="form">Search by: Name</label>
+  <input class="form-control" id="name" value="" name="form" type="text" style="width: 8em">
+  <label for="form">Incident description</label>
+  <input class="form-control" id="desc" value="" name="form" type="text">
+  <label for="form">Age between</label>
+  <input class="form-control" id="age_from" value="" name="form" type="text" style="width: 3em">
+  <label for="form">and</label>
+  <input class="form-control" id="age_to" value="" name="form" type="text" style="width: 3em">
   <button id="button" type="button" class="btn btn-default">Search</button>
+
 </form>
 
     <div id="map"></div>
