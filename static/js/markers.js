@@ -15,7 +15,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 // Grab the data with d3
-d3.json("data/json/police2.json", function(response) {
+d3.json("static/data/json/police2.json", function(response) {
   // Create a new marker cluster group
 
   var markers = L.markerClusterGroup();
@@ -53,19 +53,36 @@ var form = d3.select("#form");
 button.on("click", search);
 form.on("submit",search);
 
+
 function search() {
 
   markers.clearLayers();    // clear existing markers
 
   d3.event.preventDefault();
-  var inputElement = d3.select("#form-input");
-  var term = inputElement.property("value");
+
+  var desc_sought = d3.select("#desc").property("value").toLowerCase();
+  var name_sought = d3.select("#name").property("value").toLowerCase();
+  var age_from = d3.select("#age_from").property("value")
+  var age_to = d3.select("#age_to").property("value")
+  if (age_to == "") {age_to = 120};   // if no max age specified, set at highest plausible value
 
   for (var i = 0; i < response.length; i++) {
 
-    text = Object.values(response[i]).toString().toLowerCase();
-    if(text.search(term.toLowerCase())===-1) {continue;}
+    desc = response[i].description_of_the_circumstances;
+    if (desc==null) {desc = ""};
+    if(desc.toLowerCase().search(desc_sought)===-1) {continue;} // skip entries that don't match description
 
+    name = response[i].victim_name;
+    if (name==null) {name = ""};
+    if(name.toLowerCase().search(name_sought)===-1) {continue;} // skip entries that don't match name
+
+    age = response[i].victim_age;
+    if ((age < age_from || age > age_to) ||   // skip entries that don't match age span
+      (age == null && (d3.select("#age_from").property("value") != "" ||  // skip entries whose age is null (unknown),
+      d3.select("#age_to").property("value") != "")))                     // if user has entered an age from or to
+      {continue;}
+
+      // populate markers using same code as above, but we only get here if entry matches search terms
     var zipcode = response[i].zipcode;
     if (ziptable[zipcode]) {
       coordinates = ziptable[zipcode]
@@ -86,4 +103,7 @@ function search() {
 
 });
 
-// to do: change mapping from zip codes to address-based
+// TO DO
+// change mapping from zip codes to address-based
+// search by race: Asian, Black, Hispanic, Native American, Pacific Islander, White, Unknown
+// reset button for search
