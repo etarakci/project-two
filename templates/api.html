@@ -15,7 +15,9 @@
     <div class="row p-0 m-0">
       <div class="col-12 p-0">
         <div class="jumbotron text-center m-0 p-0">
-          <h1 class="py-5">Police Data </h1> 
+          <h3 class="py-3">Police Data </h3> 
+          <h1 class="page-title pb-3">API</h1>
+
           <nav class="navbar navbar-expand-lg navbar-custom">
             <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,13 +49,63 @@
       </div>
     </div>
   </div>
+  <div class="container-fluid">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">API Path</th>
+            <th scope="col">Description</th>
+            <th scope="col">Link to Raw JSON</th>
+            <!-- Add in download column later -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row">Police Killings</th>
+            <td>/api/v1.0/police</td>
+            <td>JSON</td>
+            <td>
+                <a class="btn btn-secondary"  href="/api/v1.0/police" role="button" target=”_blank” >Get Raw Data</a>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row">Police Contracts</th>
+            <td>/api/v1.0/contracts</td>
+            <td>JSON</td>
+            <td>
+                <a class="btn btn-secondary"  href="/api/v1.0/contracts" role="button" target=”_blank” >Get Raw Data</a>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row">DoD Equipment Purchases</th>
+            <td>/api/v1.0/equipment</td>
+            <td>JSON</td>
+            <td>
+                <a class="btn btn-secondary"  href="/api/v1.0/equipment" role="button" target=”_blank” >Get Raw Data</a>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row">Police Killings by City</th>
+            <td>/api/v1.0/city</td>
+            <td>JSON</td>
+            <td>
+                <a class="btn btn-secondary"  href="/api/v1.0/city" role="button" target=”_blank” >Get Raw Data</a>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row">Police Killings by State</th>
+            <td>/api/v1.0/state</td>
+            <td>JSON</td>
+            <td>
+                <a class="btn btn-secondary"  href="/api/v1.0/state" role="button" target=”_blank” >Get Raw Data</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
   
   
-  <div id="map"></div>
-    <!-- D3.js CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-    <script src="static/js/plot.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

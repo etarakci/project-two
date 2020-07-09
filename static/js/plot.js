@@ -1,5 +1,4 @@
-// Use d3.json() to fetch data from JSON file
-// Incoming data is internally referred to as incomingData
+// This is a test file by Erendiz to check if API works
 
 console.log("File loaded");
 

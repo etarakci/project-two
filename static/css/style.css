@@ -1,0 +1,40 @@
+
+.jumbotron {
+    background: white !important; 
+    font-family: "Arial Black", Gadget, sans-serif !important;
+}
+
+.navbar-custom { 
+    background-color: #fcb345 !important; 
+} 
+.dropdown-menu {
+    background-color: #fcb345 !important;
+    color: black !important;
+    font-family: "Arial Black", Gadget, sans-serif !important; 
+}
+
+.nav-link {
+    color: black !important;
+    font-family: "Arial Black", Gadget, sans-serif !important;
+}
+
+.navbar-brand {
+    color: black !important;
+    font-family: "Arial Black", Gadget, sans-serif !important;
+}
+.page-title {
+    font-family: Didot, serif;
+    font-style: italic;
+}
+#page-header{
+    background-color: white;
+}
+#page-contents{
+    background-color: white;
+}
+
+.name{
+    color: #636466;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-weight: lighter;
+}
