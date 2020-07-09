@@ -13,9 +13,9 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   id: "mapbox/streets-v11",
   accessToken: API_KEY
 }).addTo(map);
-
+var url = "/api/v1.0/police";
 // Grab the data with d3
-d3.json("data/json/police2.json", function(response) {
+d3.json(url, function(response) {
   // Create a new marker cluster group
 
   var markers = L.markerClusterGroup();
