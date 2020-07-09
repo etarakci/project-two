@@ -54,9 +54,9 @@ def police():
     # for x in police_lst[0]:
     #     print(x, type(police_lst[0][x]))
     #return jsonify({"a":"1"})
-    
 
-    return jsonify(police_lst)    
+
+    return jsonify(police_lst)
 
 @app.route("/api/v1.0/contracts", methods=['GET','POST'])
 def contracts():
@@ -92,7 +92,7 @@ def equipment():
         equipment_lst.append(dct)
     print(equipment_lst[0])
 
-    return jsonify(equipment_lst)    
+    return jsonify(equipment_lst)
 
 @app.route("/api/v1.0/city", methods=['GET','POST'])
 def city():
@@ -109,7 +109,7 @@ def city():
         city_lst.append(dct)
     print(city_lst[0])
 
-    return jsonify(city_lst)    
+    return jsonify(city_lst)
 
 @app.route("/api/v1.0/state", methods=['GET','POST'])
 def state():
@@ -126,8 +126,12 @@ def state():
         state_lst.append(dct)
     print(state_lst[0])
 
-    return jsonify(state_lst)    
+    return jsonify(state_lst)
 
+@app.route("/map.html", methods=['GET','POST'])
+def map():
+    # write a statement that finds all the items in the db and sets it to a variable
+    return render_template("map.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

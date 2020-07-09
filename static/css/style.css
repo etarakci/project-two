@@ -1,16 +1,16 @@
 
 .jumbotron {
-    background: white !important; 
+    background: white !important;
     font-family: "Arial Black", Gadget, sans-serif !important;
 }
 
-.navbar-custom { 
-    background-color: #fcb345 !important; 
-} 
+.navbar-custom {
+    background-color: #fcb345 !important;
+}
 .dropdown-menu {
     background-color: #fcb345 !important;
     color: black !important;
-    font-family: "Arial Black", Gadget, sans-serif !important; 
+    font-family: "Arial Black", Gadget, sans-serif !important;
 }
 
 .nav-link {
