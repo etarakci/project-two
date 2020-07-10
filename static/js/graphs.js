@@ -3,14 +3,9 @@ Promise.all([
   d3.json("/api/v1.0/police"),
   d3.json("/api/v1.0/state")
 ]).then(function(data) {
-  console.log(data[0][0]);  // first row of cities
-  console.log(data[1][0]);  // first row of animals
+  console.log(data[0][0]);  // first row of police
+  console.log(data[1][0]);  // first row of states
 
-//Extract json data from api
-
-//var url = "/api/v1.0/police";
-//d3.json(url).then(data=>{
-//console.log(data);
 
  var countRace = {};
 
@@ -68,7 +63,7 @@ console.log(genderLabel);
 
   //console.log(killingsByState);
 
-var states = [];
+  var states = [];
 
 data[1].forEach(function(d) {
   var state = d.state;
@@ -210,18 +205,25 @@ Plotly.newPlot("pie2", data2, layout2);
 
 //Horizontal bar plot 
 
-var data3 = [{
+/*var data3 = [{
   type: 'bar',
   x: totalNumKilled,
   y: states,
   orientation: 'h'
 }];
+*/
+var data3 = [{
+  type: 'bar',
+  x: states,
+  y: totalNumKilled
+  //orientation: 'h'
+}];
 
 var layout3 = {
   title: "U.S. Police Killings By State",
-  xaxis: {title: "Total Killings By State"},
-  width: 800,
-  height: 800,
+  yaxis: {title: "Total Killings By State"},
+  width: 1000,
+  height: 600,
 };
 
 Plotly.newPlot('hbar-plot', data3, layout3);
@@ -233,7 +235,7 @@ var trace1 = {
   name: 'Asian',
   orientation: 'h',
   marker: {
-    color: 'rgba(55,128,191,0.6)',
+    color: '#98abc5',
     width: 3
   },
   type: 'bar'
@@ -246,7 +248,7 @@ var trace2 = {
   orientation: 'h',
   type: 'bar',
   marker: {
-    color: 'rgba(255,153,51,0.6)',
+    color: '#8a89a6',
     width: 3
   }
 };
@@ -258,7 +260,7 @@ var trace3 = {
   orientation: 'h',
   type: 'bar',
   marker: {
-    color: 'rgba(255,0,0,0.6)',
+    color: '#7b6888',
     width: 1
   }
 };
@@ -270,7 +272,7 @@ var trace4 = {
   orientation: 'h',
   type: 'bar',
   marker: {
-    color: 'rgba(128,0,128,0.6)',
+    color: '#6b486b',
     width: 1
   }
 };
@@ -282,7 +284,7 @@ var trace5 = {
   orientation: 'h',
   type: 'bar',
   marker: {
-    color: 'rgba(0,0,0,0.6)',
+    color: '#a05d56',
     width: 1
   }
 };
@@ -294,7 +296,7 @@ var trace6 = {
   orientation: 'h',
   type: 'bar',
   marker: {
-    color: 'rgba(128,128,0,0.6)',
+    color: '#d0743c',
     width: 1
   }
 };
@@ -306,7 +308,7 @@ var trace7 = {
   orientation: 'h',
   type: 'bar',
   marker: {
-    color: 'rgba(0,0,255,0.6)',
+    color: '#ff8c00',
     width: 1
   }
 };
@@ -316,7 +318,7 @@ var data4 = [trace1, trace2,trace3,trace4,trace5,trace6,trace7];
 var layout4 = {
   title: 'U.S. Police Killings By State and Race',
   xaxis: {title: "Total Killings By State"},
-  width: 800,
+  width: 1000,
   height: 1000,
   barmode: 'stack'
 };
