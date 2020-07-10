@@ -128,11 +128,10 @@ def state():
 
     return jsonify(state_lst)
 
-@app.route("/map", methods=['GET','POST'])
+@app.route("/map.html", methods=['GET','POST'])
 def map():
     # write a statement that finds all the items in the db and sets it to a variable
     return render_template("map.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
-

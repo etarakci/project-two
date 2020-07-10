@@ -1,16 +1,13 @@
-
 body {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
+  padding: 0;
+  margin: 0;
+}
 
-  body,
-  html,
-  panel-default,
-  panel-body,
-  panel {
-    height: 100% !important;
-  }
+#map,
+body,
+html {
+  height: 100%;
+}
 
 .jumbotron {
     background: white !important;
@@ -19,7 +16,6 @@ body {
 
 .navbar-custom {
     background-color: #fcb345 !important;
-    padding-bottom: 10;
 }
 .dropdown-menu {
     background-color: #fcb345 !important;
@@ -44,81 +40,11 @@ body {
     background-color: white;
 }
 #page-contents{
-    background-color: transparent;
+    background-color: white;
 }
 
 .name{
     color: #636466;
     font-family: "Arial Black", Gadget, sans-serif;
     font-weight: lighter;
-}
-
-#map {
-    width: 100% !important;
-    height: 100% !important;
-}
-
-#form {
-    padding: 10px !important;
-    margin: 0 !important;
-}
-.map-box {
-    width: 75% !important;
-    height: 60% !important;
-    padding: 10px !important;
-    border: 10px #fcb345 !important;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    
-}
-#map-title{
-    padding: 10px !important;
-    border: 10px #fcb345 !important;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    color: black;
-    font-family: "Arial Black", Gadget, sans-serif;
-}
-.form-control{
-    display: inline-block !important;
-    width: 25%;
-}
-
-.form-box {
-    width: 75% !important;
-    padding: 10px !important;
-    border: 10px #fcb345 !important;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: Tahoma, Geneva, sans-serif;
-    
-}
-.search-btn {
-    display: block;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fcb345 !important;
-}
-#search-description {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    
-}
-
-.pie-box,
-#pie,
-#pie2 {
-    display: inline-block !important;
-    width: 25% !important;
-    margin: 0 !important;
-    padding: 0 !important;
 }
