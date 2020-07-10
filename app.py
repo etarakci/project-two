@@ -133,6 +133,10 @@ def map():
     # write a statement that finds all the items in the db and sets it to a variable
     return render_template("map.html")
 
+@app.route("/map2.html", methods=['GET','POST'])
+def map2():
+    # write a statement that finds all the items in the db and sets it to a variable
+    return render_template("map2.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
-
