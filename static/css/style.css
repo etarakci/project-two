@@ -114,7 +114,11 @@ body {
     
 }
 
-.pie-box {
+.pie-box,
+#pie,
+#pie2 {
     display: inline-block !important;
-    width: 25%;
+    width: 25% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
