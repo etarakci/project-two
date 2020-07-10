@@ -28,7 +28,7 @@ Promise.all([
 
 var countGender = {};
 
-        // count how many race occurences in list and store in countRace
+        // count how many race occurences in list and store in countGender
            data[0].forEach(function(d) {
             var gender = d.victim_gender;
             if(countGender[gender] === undefined) {
@@ -57,34 +57,56 @@ var genderKilled = Object.values(countGender);
 var genderLabel = Object.keys(countGender);
 // console.log(genderLabel);
 
-//var killingsByState = d3.nest()
-  //.key(function(d) { return d.state; })
-  //.entries(data[1]);
 
-  //console.log(killingsByState);
-
-  var states = [];
+//Get state values
+var states = [];
 
 data[1].forEach(function(d) {
-  var state = d.state;
+var state = d.state;
   states.push(state);
 });
-// console.log(states);
 states.pop();
 states.pop();
 // console.log(states);
 
+//Get population values;
+var population = [];
+data[1].forEach(function(d) {
+  var pop = d.population;
+  population.push(pop);
+});
+population.pop();
+population.pop();
+
+//console.log(population);
+
+
+//Get the total number of police killings
 var totalNumKilled = [];
 
 data[1].forEach(function(d) {
   var totalNum = d.all_people_killed;
   totalNumKilled.push(totalNum);
 });
+totalNumKilled.pop();
+totalNumKilled.pop();
+// console.log(totalNumKilled);
 
-// console.log(totalNumKilled);
-totalNumKilled.pop();
-totalNumKilled.pop();
-// console.log(totalNumKilled);
+
+//Get percent population of numbers killed per population
+
+var per_capita = [];
+//divide the total number killed by the total population times 100000
+for(var i = 0; i < totalNumKilled.length; i++){
+  per_capita.push(Number(totalNumKilled[i] / population[i]*100000).toFixed(2));
+}
+//console.log(per_capita);
+
+//perCapitaRounded = per_capita.map(function(each_element){
+ // return Number(each_element.toFixed(2));
+//});
+
+//console.log(perCapitaRounded);
 
 
 var asiansKilled = [];
@@ -129,11 +151,9 @@ data[1].forEach(function(d) {
   var nativeNum = d.native_americans_killed;
   nativesKilled.push(nativeNum);
 });
-
-console.log(nativesKilled);
 nativesKilled.pop();
 nativesKilled.pop();
-console.log(nativesKilled);
+//console.log(nativesKilled);
 
 var piNumKilled = [];
 
@@ -170,6 +190,8 @@ data[1].forEach(function(d) {
 whitesKilled.pop();
 whitesKilled.pop();
 // console.log(whitesKilled);
+
+
 
 //Create pie chart
 
@@ -215,13 +237,12 @@ Plotly.newPlot("pie2", data2, layout2);
 var data3 = [{
   type: 'bar',
   x: states,
-  y: totalNumKilled
-  //orientation: 'h'
+  y: per_capita
 }];
 
 var layout3 = {
   title: "U.S. Police Killings By State",
-  yaxis: {title: "Total Killings By State"},
+  yaxis: {title: "Per capita Police Killings Rate (%)"},
   width: 1000,
   height: 600,
 };
