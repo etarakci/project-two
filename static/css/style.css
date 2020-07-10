@@ -113,3 +113,8 @@ body {
     text-align: left;
     
 }
+
+.pie-box {
+    display: inline-block !important;
+    width: 25%;
+}
