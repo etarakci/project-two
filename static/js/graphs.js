@@ -3,8 +3,8 @@ Promise.all([
   d3.json("/api/v1.0/police"),
   d3.json("/api/v1.0/state")
 ]).then(function(data) {
-  console.log(data[0][0]);  // first row of police
-  console.log(data[1][0]);  // first row of states
+  // console.log(data[0][0]);  // first row of police
+  // console.log(data[1][0]);  // first row of states
 
 
  var countRace = {};
@@ -23,7 +23,7 @@ Promise.all([
       var race = d.victim_race;
       d.count = countRace[race];
 });
-        console.log(countRace);
+        // console.log(countRace);
 
 
 var countGender = {};
@@ -42,20 +42,20 @@ var countGender = {};
             var gender = d.victim_gender;
             d.count = countGender[gender];
       });
-              console.log(countGender);
+              // console.log(countGender);
 
 
 var raceKilled = Object.values(countRace);
-console.log(raceKilled);
+// console.log(raceKilled);
 
 var raceLabel = Object.keys(countRace);
-console.log(raceLabel);
+// console.log(raceLabel);
 
 var genderKilled = Object.values(countGender);
-console.log(genderKilled);
+// console.log(genderKilled);
 
 var genderLabel = Object.keys(countGender);
-console.log(genderLabel);
+// console.log(genderLabel);
 
 //var killingsByState = d3.nest()
   //.key(function(d) { return d.state; })
@@ -69,10 +69,10 @@ data[1].forEach(function(d) {
   var state = d.state;
   states.push(state);
 });
-console.log(states);
+// console.log(states);
 states.pop();
 states.pop();
-console.log(states);
+// console.log(states);
 
 var totalNumKilled = [];
 
@@ -81,10 +81,10 @@ data[1].forEach(function(d) {
   totalNumKilled.push(totalNum);
 });
 
-console.log(totalNumKilled);
+// console.log(totalNumKilled);
 totalNumKilled.pop();
 totalNumKilled.pop();
-console.log(totalNumKilled);
+// console.log(totalNumKilled);
 
 
 var asiansKilled = [];
@@ -94,10 +94,10 @@ data[1].forEach(function(d) {
   asiansKilled.push(asianNum);
 });
 
-console.log(asiansKilled);
+// console.log(asiansKilled);
 asiansKilled.pop();
 asiansKilled.pop();
-console.log(asiansKilled);
+// console.log(asiansKilled);
 
 var blacksKilled = [];
 
@@ -106,10 +106,10 @@ data[1].forEach(function(d) {
   blacksKilled.push(blackNum);
 });
 
-console.log(blacksKilled);
+// console.log(blacksKilled);
 blacksKilled.pop();
 blacksKilled.pop();
-console.log(blacksKilled);
+// console.log(blacksKilled);
 
 var hispanicsKilled = [];
 
@@ -118,10 +118,10 @@ data[1].forEach(function(d) {
   hispanicsKilled.push(hispanicsNum);
 });
 
-console.log(hispanicsKilled);
+// console.log(hispanicsKilled);
 hispanicsKilled.pop();
 hispanicsKilled.pop();
-console.log(hispanicsKilled);
+// console.log(hispanicsKilled);
 
 var nativesKilled = [];
 
@@ -142,10 +142,10 @@ data[1].forEach(function(d) {
   piNumKilled.push(piNum);
 });
 
-console.log(piNumKilled);
+// console.log(piNumKilled);
 piNumKilled.pop();
 piNumKilled.pop();
-console.log(piNumKilled);
+// console.log(piNumKilled);
 
 var unknownKilled = [];
 
@@ -154,10 +154,10 @@ data[1].forEach(function(d) {
   unknownKilled.push(unknownNum);
 });
 
-console.log(unknownKilled);
+// console.log(unknownKilled);
 unknownKilled.pop();
 unknownKilled.pop();
-console.log(unknownKilled);
+// console.log(unknownKilled);
 
 var whitesKilled = [];
 
@@ -166,10 +166,10 @@ data[1].forEach(function(d) {
   whitesKilled.push(whiteNum);
 });
 
-console.log(whitesKilled);
+// console.log(whitesKilled);
 whitesKilled.pop();
 whitesKilled.pop();
-console.log(whitesKilled);
+// console.log(whitesKilled);
 
 //Create pie chart
 
@@ -182,7 +182,7 @@ var data1 = [{
   var layout1 = {
     title: "U.S.Police Killings By Race",
     height: 400,
-    width: 600
+    width: 500
   };
 
   Plotly.newPlot("pie", data1, layout1);
@@ -198,7 +198,7 @@ var data2 = [{
 var layout2 = {
   title: "U.S.Police Killings By Gender", 
   height: 400,
-  width: 800
+  width: 500
 };
 
 Plotly.newPlot("pie2", data2, layout2);
