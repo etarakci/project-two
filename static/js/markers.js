@@ -50,6 +50,7 @@ d3.json("static/data/json/police2.json", function(response) {
 
 var button = d3.select("#button");
 var form = d3.select("#form");
+var dropdown = document.multiselect('#dropdown');
 button.on("click", search);
 form.on("submit",search);
 
@@ -57,7 +58,6 @@ form.on("submit",search);
 function search() {
 
   markers.clearLayers();    // clear existing markers
-
   d3.event.preventDefault();
 
   var desc_sought = d3.select("#desc").property("value").toLowerCase();
@@ -66,24 +66,35 @@ function search() {
   var age_to = d3.select("#age_to").property("value")
   if (age_to == "") {age_to = 120};   // if no max age specified, set at highest plausible value
 
-
+  var races_selected = [...document.multiselect('#dropdown')._item];
+  var races_sought = [];  // list of races to search for
+  if (races_selected[0].selected) {races_sought.push("asian")};
+  if (races_selected[1].selected) {races_sought.push("black")};
+  if (races_selected[2].selected) {races_sought.push("hispanic")};
+  if (races_selected[3].selected) {races_sought.push("native american")};
+  if (races_selected[4].selected) {races_sought.push("pacific islander")};
+  if (races_selected[5].selected) {races_sought.push("white")};
+  if (races_selected[6].selected) {races_sought.push("unknown race")};
 
 
   for (var i = 0; i < response.length; i++) {
 
     desc = response[i].description_of_the_circumstances;
     if (desc==null) {desc = ""};
-    if(desc.toLowerCase().search(desc_sought)===-1) {continue;} // skip entries that don't match description
+    if (desc.toLowerCase().search(desc_sought)===-1) {continue;} // skip entries that don't match description
 
     name = response[i].victim_name;
     if (name==null) {name = ""};
-    if(name.toLowerCase().search(name_sought)===-1) {continue;} // skip entries that don't match name
+    if (name.toLowerCase().search(name_sought)===-1) {continue;} // skip entries that don't match name
 
     age = response[i].victim_age;
     if ((age < age_from || age > age_to) ||   // skip entries that don't match age span
       (age == null && (d3.select("#age_from").property("value") != "" ||  // skip entries whose age is null (unknown),
       d3.select("#age_to").property("value") != "")))                     // if user has entered an age from or to
       {continue;}
+
+    race = response[i].victim_race.toLowerCase();
+    if (races_sought.length != 0 && !races_sought.includes(race)) {continue;}
 
       // populate markers using same code as above, but we only get here if entry matches search terms
     var zipcode = response[i].zipcode;
