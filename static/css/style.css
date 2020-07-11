@@ -58,10 +58,6 @@ body {
     height: 100% !important;
 }
 
-#form {
-    padding: 10px !important;
-    margin: 0 !important;
-}
 .map-box {
     width: 75% !important;
     height: 60% !important;
@@ -78,6 +74,11 @@ body {
     display: block;
     color: black;
     font-family: "Arial Black", Gadget, sans-serif;
+}
+
+#form {
+    padding: 10px !important;
+    margin: 0 !important;
 }
 .form-control{
     display: inline-block !important;
@@ -107,6 +108,8 @@ body {
 #search-description {
     display: block;
     padding: 5px;
+    margin-top:5px;
+    margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
@@ -127,10 +130,23 @@ body {
 #pie-title{
     /* margin-left: 10%; */
     padding: 10px !important;
-    border: 10px #fcb345 !important;
     display: block;
     margin-left: auto;
     margin-right: auto;
     color: black;
     font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.about {
+    color: black;
+    font-family: "Arial Black", Gadget, sans-serif !important;
+}
+
+.about-title {
+    padding: 20px;
+    padding-left: 0px !important;
+}
+
+.about-contents {
+    font-family: Tahoma, Geneva, sans-serif !important;
 }
