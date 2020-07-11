@@ -242,7 +242,7 @@ var data3 = [{
 
 var layout3 = {
   title: "U.S. Police Killings By State",
-  yaxis: {title: "Per capita Police Killings Rate (%)"},
+  yaxis: {title: "Police Killings per 100,000"},
   width: 1000,
   height: 600,
 };

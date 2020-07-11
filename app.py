@@ -132,10 +132,14 @@ def state():
 def map():
     # write a statement that finds all the items in the db and sets it to a variable
     return render_template("map.html")
-    
+
 @app.route("/dod", methods=['GET','POST'])
 def dod():
     return render_template("dod.html")
+
+@app.route("/about", methods=['GET','POST'])
+def about():
+    return render_template("about.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

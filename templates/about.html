@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Police Data</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="/static/css/style.css">
+
+
+
+</head>
+
+<body>
+  <div class="container-fluid p-0 m-0" id="page-header">
+    <div class="row p-0 m-0">
+      <div class="col-12 p-0">
+        <div class="jumbotron text-center m-0 p-0">
+          <h1 class="py-5">Police Data </h1>
+          <nav class="navbar navbar-expand-lg navbar-custom">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/saytheirnames">Say Their Names</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    API
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/api/v1.0">API Paths</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/api/v1.0/police" target=”_blank”>Police Killings</a>
+                    <a class="dropdown-item" href="/api/v1.0/contracts" target=”_blank”>Police Contracts</a>
+                    <a class="dropdown-item" href="/api/v1.0/equipment" target=”_blank”>DoD Equipment Purchases</a>
+                    <a class="dropdown-item" href="/api/v1.0/city" target=”_blank”>Police Killings by City</a>
+                    <a class="dropdown-item" href="/api/v1.0/state" target=”_blank”>Police Killings by State</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container-fluid about">
+    <!-- Team Members -->
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 about-title">
+            <h3>Team Members</h3>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div id="search-description">
+                <p class="about-contents">The team members are: Fareedah Sabree Pete, Erendiz Tarakci, Jordon, and Tom Recht.</p>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <!-- Coding Approach -->
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 about-title">
+            <h3>Coding Approach</h3>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div id="search-description">
+                <p class="about-contents">
+                    We used pandas via jupyter notebook to export the data from 
+                    a Kaggle database (listed below).</a>
+                    After cleaning the data we stored it in a MongoDB database. This database was then accessed using Flask, which 
+                    was also used to host the data visualization website. The data was visualized on the website using a combination
+                    of javascript libraries.
+                    <ul class="about-contents">
+                        <li> <b>Import data:</b> jupyter notebook & Pandas </li>
+                        <li> <b>Export cleaned data:</b> MongoDB </li>
+                        <li> <b>Create API and Host Web Page:</b> Flask (used to extract data from MongoDB) </li>
+                        <li> <b>Visualize Data:</b>  </li>
+                      </ul>
+                </p>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <!-- Data -->
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 about-title">
+            <h3>Data Extraction and Cleaning</h3>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div id="search-description">
+                <h5> Data Used</h5>
+                <p >
+                    <ul>
+                        <li class="about-contents"><a href="https://www.kaggle.com/jpmiller/police-violence-in-the-us" target=”_blank”>
+                            Kaggle</a> (police_killings.csv,police_contracts.csv, dod_equipment_purchases.csv)</li>
+                      </ul>
+                </p>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div id="search-description">
+                <h5> Data Cleaning</h5>
+                <p class="about-contents"> Several steps were taken to clean the data with Pandas inside the jupyter notebook. 
+                    The main methods were:
+                    <ul class="about-contents">
+                        <li>Renaming the columns to make them easier to query the data.</li>
+                        <li>Removing data that was not needed from each dataset.</li>
+                        <li>Updating the data types where needed.</li>
+                        <li>Removing erroroneous data (i.e. age with string values).</li>
+                        <li>Replacing null values with 0 for numbers, and 'Unknown' for string values.</li>
+                      </ul>
+                </p>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <!-- Visualization -->
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 about-title">
+            <h3>Visualization</h3>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2">
+            <img src="https://fraeli78.github.io/post/leaflet/summary/featured.png" class="img-rounded" alt="Leaflet">
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
