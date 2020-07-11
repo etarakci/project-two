@@ -18,11 +18,11 @@ body {
 }
 
 .navbar-custom {
-    background-color: #fcb345 !important;
+    background-color: #FF9F1C !important;
     padding-bottom: 10;
 }
 .dropdown-menu {
-    background-color: #fcb345 !important;
+    background-color: #FF9F1C !important;
     color: black !important;
     font-family: "Arial Black", Gadget, sans-serif !important;
 }
@@ -66,18 +66,16 @@ body {
     width: 75% !important;
     height: 60% !important;
     padding: 10px !important;
-    border: 10px #fcb345 !important;
+    border: 10px !important;
     display: block;
     margin-left: auto;
     margin-right: auto;
     
 }
 #map-title{
-    padding: 10px !important;
-    border: 10px #fcb345 !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     color: black;
     font-family: "Arial Black", Gadget, sans-serif;
 }
@@ -89,7 +87,7 @@ body {
 .form-box {
     width: 75% !important;
     padding: 10px !important;
-    border: 10px #fcb345 !important;
+    border: 10px!important;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -104,13 +102,16 @@ body {
     margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #fcb345 !important;
+    background-color: #FFBF69 !important;
 }
 #search-description {
     display: block;
+    padding: 5px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+    background-color: rgb(46, 196, 182,.5) !important;
+    border-radius: 10px;
     
 }
 
@@ -119,6 +120,17 @@ body {
 #pie2 {
     display: inline-block !important;
     width: 25% !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    /* margin: 0 !important; */
+    /* padding: 0 !important; */
+}
+
+#pie-title{
+    /* margin-left: 10%; */
+    padding: 10px !important;
+    border: 10px #fcb345 !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-family: "Arial Black", Gadget, sans-serif;
 }
